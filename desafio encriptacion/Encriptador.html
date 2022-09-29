@@ -1,0 +1,215 @@
+<meta charset="utf-8">
+<br/><br/><br/>
+
+<textarea id="primero" cols="40" rows="10"></textarea>
+<br/>
+
+<button id="cifrar">cifrar</button>
+<button id="decifrar">decifrar</button>
+
+<br/><br/><br/>
+
+<textarea id="segundo" cols="40" rows="10"></textarea>
+<br/>
+<button id="copiar">copiar</button>
+
+
+
+
+
+<script>
+
+
+	var primero = document.getElementById("primero");
+	var segundo = document.getElementById("segundo");
+
+	function sinComas () {
+		cant = arreglo.length;
+		console.log (cant)
+
+		var x = 0;
+		var ed = ("")
+
+		while ( x < cant) {
+			ed = (ed + arreglo[x]);
+			x++
+
+		}
+		console.log(ed);
+			segundo.value= ed;	
+		
+
+	}
+
+	
+	function mostrar () {
+
+
+		var contador = 0
+
+		while (contador <= cantidad) {
+			if (arreglo[contador]=="e") {
+			arreglo[contador]="enter"
+		}
+			if (arreglo[contador]=="i") {
+			arreglo[contador]="imes"
+		}
+			if (arreglo[contador]=="a") {
+			arreglo[contador]="ai"
+		}
+			if (arreglo[contador]=="o") {
+			arreglo[contador]="ober"
+		}
+			if (arreglo[contador]=="u") {
+			arreglo[contador]="ufat"
+		}
+		contador++
+		}			
+
+			var aca = arreglo[0] + arreglo[1];
+			console.log(aca);
+
+			sinComas(arreglo);
+
+	}
+	function mostrar2 () {
+
+
+		var contador = 0
+
+		while (contador <= cantidad) {
+			if ((arreglo[contador]=="e") &&
+			   (arreglo[contador+1]=="n") &&
+			   (arreglo[contador+2]=="t") &&
+			   (arreglo[contador+3]=="e") &&
+			   (arreglo[contador+4]=="r")) {
+			arreglo[contador]="e"
+			arreglo.splice((contador + 1),(4))
+		}
+		    contador++
+		}				
+
+		console.log(arreglo);
+
+	
+
+				letraI(arreglo)	;
+
+	}
+
+	function letraI () {
+
+		var contador = 0
+			//console.log(arreglo);
+			//console.log(cantidad);	
+
+		while (contador <= cantidad) {
+			if ((arreglo[contador]=="i") &&
+			   (arreglo[contador+1]=="m") &&
+			   (arreglo[contador+2]=="e") &&
+			   (arreglo[contador+3]=="s")) {
+			arreglo[contador]="i"
+			arreglo.splice((contador + 1),(3))
+		}
+		    contador++
+		}				
+				console.log(arreglo);
+				letraA(arreglo)	;
+	}
+	function letraA () {
+
+		var contador = 0
+			//console.log(arreglo);
+			//console.log(cantidad);	
+
+		while (contador <= cantidad) {
+			if ((arreglo[contador]=="a") &&
+			   (arreglo[contador+1]=="i")) {
+			arreglo[contador]="a"
+			arreglo.splice((contador + 1),(1))
+		}
+		    contador++
+		}				
+				console.log(arreglo);
+				letraO(arreglo)	;
+	}
+	function letraO () {
+
+		var contador = 0
+			//console.log(arreglo);
+			//console.log(cantidad);	
+
+		while (contador <= cantidad) {
+			if ((arreglo[contador]=="o") &&
+			   (arreglo[contador+1]=="b") &&
+			   (arreglo[contador+2]=="e") &&
+			   (arreglo[contador+3]=="r")) {
+			arreglo[contador]="o"
+			arreglo.splice((contador + 1),(3))
+		}
+		    contador++
+		}				
+				console.log(arreglo);
+				letraU(arreglo)	;
+	}
+	function letraU () {
+
+		var contador = 0
+			//console.log(arreglo);
+			//console.log(cantidad);	
+
+		while (contador <= cantidad) {
+			if ((arreglo[contador]=="u") &&
+			   (arreglo[contador+1]=="f") &&
+			   (arreglo[contador+2]=="a") &&
+			   (arreglo[contador+3]=="t")) {
+			arreglo[contador]="u"
+			arreglo.splice((contador + 1),(3))
+		}
+		    contador++
+		}				
+				console.log(arreglo);
+				sinComas(arreglo);
+	}
+
+	
+	function intercambiar() {
+
+		palabra = primero.value;
+		arreglo = palabra.split("");
+		cantidad = arreglo.length
+
+		console.log(arreglo);
+		mostrar(arreglo);			
+	}
+	function intercambiar2() {
+
+		palabra = primero.value;
+		arreglo = palabra.split("");
+		cantidad = arreglo.length
+
+		console.log(arreglo);
+		mostrar2(arreglo);			
+	}
+	
+	function portapapeles () {
+		copiado=document.getElementById("segundo");
+		copiado.select();
+		copiado.setSelectionRange(0,9999);
+		document.execCommand("copy");
+
+	}
+
+
+	var buttonCifrar = document.getElementById("cifrar");
+	buttonCifrar.onclick = intercambiar;
+
+	var buttonDecifrar = document.getElementById("decifrar");
+	buttonDecifrar.onclick = intercambiar2;
+
+	var buttonCopiar = document.getElementById("copiar");
+	buttonCopiar.onclick = portapapeles;	
+
+
+</script>
+
